@@ -19,9 +19,8 @@ body {
   font-size: 150%;
   line-height: 1.4;
   color: #6d6d6d;
-  background: #ccffff url("../img/bg-body.gif");
+  background: #ccffff;
   position: relative;
-  behavior: url("/js/ie6/csshover.htc");
   padding: 0 30px;
 }
 
