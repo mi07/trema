@@ -75,6 +75,7 @@ h1 a:hover {
 }
 
 pre {
+  background: rgb(0,0,0); /* for IE6 and 7 */
   background: rgba(0,0,0,0.9);
   color: #fff;
   padding: 8px 10px;
@@ -95,6 +96,7 @@ pre code {
 ******************************************************************************/
 
 #informations {
+  border-top: 1px solid rgb(0,0,0); /* for IE6 and 7 */
   border-top: 1px solid rgba(0,0,0,0.5);
 }
 
@@ -103,7 +105,9 @@ pre code {
 }
 
 #informations .row {
+  border-bottom: 1px solid rgb(0,0,0); /* for IE6 and 7 */
   border-bottom: 1px solid rgba(0,0,0,0.5);
+  border-top: 1px solid rgb(255,255,255); /* for IE6 and 7 */
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 2em 20px 0;
 }
@@ -125,6 +129,7 @@ pre code {
 }
 
 #informations .button a {
+  background: rgb(255,204,255); /* for IE6 and 7 */
   background: rgba(255,204,255,0.3);
   padding: 8px 10px 6px;
   border-radius: 0.4em;
@@ -137,6 +142,7 @@ pre code {
 }
 
 #informations .button a:hover {
+  background: rgb(255,255,255); /* for IE6 and 7 */
   background: rgba(255,255,255,0.25);
 }
 
