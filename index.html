@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Trema: An OpenFlow Framework for Ruby/C</title>
+    <title>Trema: Full-Stack OpenFlow Framework for Ruby/C</title>
     <link rel="stylesheet" href="./css/screen.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="./css/chunkfive.css" type="text/css" media="screen" />
   </head>
@@ -11,7 +11,7 @@
     <div id="wrap">
       <div id="header">
         <h1><a href="./">Trema</a></h1>
-        <p id="subtitle"><strong>OpenFlow Framework for Ruby/C</strong></p>
+        <p id="subtitle"><strong>Full-Stack OpenFlow Framework for Ruby/C</strong></p>
       </div>
 
       <div id="informations">
@@ -20,11 +20,8 @@
             <div class="group row">
               <div class="col-1">
                 <p>
-                  You can download this project in either
-                  <a href="http://github.com/trema/trema/zipball/master">zip</a> or
-                  <a href="http://github.com/trema/trema/tarball/master">tar</a>
-                  formats. Also you can clone the project
-                  with <a href="http://git-scm.com">Git</a>.
+                  Trema is a full-stack, easy-to-use framework for
+                  developing OpenFlow controllers in Ruby/C.
                 </p>
               </div>
               <div class="col-2">
@@ -37,12 +34,39 @@
             <div class="group row">
               <div class="col-1">
                 <p>
-                  Then run build.rb and straight away you have a working
-                  Trema installation.
+                  Setup is very easy. Run <em>build.rb</em> in the
+                  Trema distribution and straight away you have a
+                  working Trema installation.
                 </p>
               </div>
               <div class="col-2">
-                <pre><code><span style="color: #e3d796;">$</span> ./trema/build.rb</code></pre>
+                <pre><code><span style="color: #ff99cc;">$</span> ./build.rb</code></pre>
+              </div>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>
+                  Write your own OpenFlow controller by adding message
+                  handlers to your controller class just like Rails.
+                </p>
+              </div>
+              <div class="col-2">
+                <pre><code><span style="color: #ff99cc;"><em># Controller class</em></span>
+<span style="color: #8a9597;">class</span> <span style="color: #e3d796;"><em>MyController</em></span> < Controller
+  <span style="color: #ff99cc;"><em># packet_in handler</em></span>
+  <span style="color: #8a9597;">def</span> <span style="color: #a999ac;">packet_in</span> dpid, msg
+    send_flow_mod_add(
+      dpid,
+      :match=>ExactMatch.from(msg),
+      :buffer_id=>msg.buffer_id,
+      :actions=>ActionOutput.new(msg.in_port+1)
+    )
+  <span style="color: #8a9597;">end</span>
+<span style="color: #8a9597;">end</span></code></pre>
               </div>
             </div>
           </li>
@@ -51,16 +75,22 @@
             <div class="group row">
               <div class="col-1">
                 <p>
-                  To start using Trema, cbench is a good entry point.
-                  <a href="http://www.openflow.org/wk/index.php/Oflops">cbench</a>
-                  is a program for testing OpenFlow controllers by
-                  generating packet-in events for new flows. To
-                  estimate the performance of Trema, run the following
-                  command:
+                  Run the controller you wrote with <em>trema run</em>
+                  command. You can describe the network topology in
+                  which the controller is executed using network DSL
+                  and pass it to trema run.
                 </p>
               </div>
               <div class="col-2">
-                <pre><code><span style="color: #e3d796;">$</span> ./build.rb cbench</code></pre>
+                <pre><code><span style="color: #ff99cc;">$</span> cat network.conf
+vswitch { dpid <span style="color: #a2a96f;">"0xabc"</span> }
+vhost <span style="color: #a2a96f;">"host1"</span>
+vhost <span style="color: #a2a96f;">"host2"</span>
+link <span style="color: #a2a96f;">"0xabc"</span>, <span style="color: #a2a96f;">"host1"</span>
+link <span style="color: #a2a96f;">"0xabc"</span>, <span style="color: #a2a96f;">"host2"</span>
+
+<span style="color: #ff99cc;">$</span> ./trema run mycontroller.rb -c network.conf
+</code></pre>
               </div>
             </div>
           </li>
@@ -69,12 +99,9 @@
             <div class="group row">
               <div class="col-1">
                 <p>
-                  Some of OpenFlow controller applications developed
-                  on top of Trema can be found on
-                  <a href="https://github.com/trema/apps">Trema
-                  Apps</a>.  Trema Apps is not main part of Trema
-                  framework but you can refer to them as examples or
-                  references.
+                  Some OpenFlow controllers developed on top of Trema
+                  can be found on Trema Apps repository. You can refer
+                  to them as examples or references.
                 </p>
               </div>
               <div class="col-2">
@@ -141,27 +168,3 @@
 
   </body>
 </html>
-
-
-
-<!--     <h2>Publications</h2> -->
-<!--     <ul> -->
-<!--       <li>HIDEyuki Shimonishi, <a href="doc/Trema_GEC12_20111104_1.pdf">Trema Updates and introduction to GENI researchers</a>, GENI Engineering Conference 12, 2011</li> -->
-<!--       <li>HIDEyuki Shimonishi and Yasunobu Chiba and Yasuhito Takamiya -->
-<!--         and Kazushi Sugyo, <a href="doc/Trema_GEC11_poster.pdf">Trema: An open source OpenFlow -->
-<!--         controller platform</a>, GENI Engineering Conference 11 poster session, 2011</li> -->
-<!--     </ul> -->
-
-
-<!--     <h2>Contact</h2> -->
-<!--     <p> -->
-<!--       <a href="https://groups.google.com/group/trema-dev">trema-dev</a> at Google Groups<br/> -->
-<!--     </p> -->
-
-
-<!--     <div class="footer"> -->
-<!--       get the source code on GitHub : <a href="http://github.com/trema/trema">trema/trema</a> -->
-<!--     </div> -->
-
-<!--   </div> -->
-
