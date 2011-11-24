@@ -1,137 +1,167 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Trema: An OpenFlow Framework for Ruby/C</title>
+    <link rel="stylesheet" href="./css/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/chunkfive.css" type="text/css" media="screen" />
+  </head>
 
-  <title>Trema: An Open Source modular framework for developing OpenFlow controllers in Ruby/C</title>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <h1><a href="./">Trema</a></h1>
+        <p id="subtitle"><strong>OpenFlow Framework for Ruby/C</strong></p>
+      </div>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffdd;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; }
-    h3 { text-align: center; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic; }
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
-</head>
+      <div id="informations">
+        <ul>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>
+                  You can download this project in either
+                  <a href="http://github.com/trema/trema/zipball/master">zip</a> or
+                  <a href="http://github.com/trema/trema/tarball/master">tar</a>
+                  formats. Also you can clone the project
+                  with <a href="http://git-scm.com">Git</a>.
+                </p>
+              </div>
+              <div class="col-2">
+                <p class="button"><a href="https://github.com/trema/trema">Get Trema Today!</a></p>
+              </div>
+            </div>
+          </li>
 
-<body>
-  <a href="http://github.com/trema/trema"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>
+                  Then run build.rb and straight away you have a working
+                  Trema installation.
+                </p>
+              </div>
+              <div class="col-2">
+                <pre><code><span style="color: #e3d796;">$</span> ./trema/build.rb</code></pre>
+              </div>
+            </div>
+          </li>
 
-  <div id="container">
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>
+                  To start using Trema, cbench is a good entry point.
+                  <a href="http://www.openflow.org/wk/index.php/Oflops">cbench</a>
+                  is a program for testing OpenFlow controllers by
+                  generating packet-in events for new flows. To
+                  estimate the performance of Trema, run the following
+                  command:
+                </p>
+              </div>
+              <div class="col-2">
+                <pre><code><span style="color: #e3d796;">$</span> ./build.rb cbench</code></pre>
+              </div>
+            </div>
+          </li>
 
-    <div class="download">
-      <a href="http://github.com/trema/trema/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/trema/trema/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>
+                  Some of OpenFlow controller applications developed
+                  on top of Trema can be found on
+                  <a href="https://github.com/trema/apps">Trema
+                  Apps</a>.  Trema Apps is not main part of Trema
+                  framework but you can refer to them as examples or
+                  references.
+                </p>
+              </div>
+              <div class="col-2">
+                <p class="button"><a href="https://github.com/trema/apps">Visit Trema Apps!</a></p>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Meta</p>
+              </div>
+
+              <div class="col-2">
+                <ul>
+                  <li><a href="https://github.com/trema/trema/blob/master/README.md">README</a>
+                  <li><a href="https://github.com/trema/trema/wiki/Quick-start">Quick Start Guide</a>
+                  <li><a href="http://rubydoc.info/github/trema/trema/master/frames">Ruby API documents</a></li>
+                  <li><a href="https://github.com/trema/trema/issues">Bugs</a></li>
+                  <li><a href="https://groups.google.com/group/trema-dev">Mailing List</a></li>
+                  <li>Twitter: <a href="http://twitter.com/trema_news">@trema_news</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Tutorials</p>
+              </div>
+
+              <div class="col-2">
+                <ul>
+                  <li><a href="doc/Trema_Overview_20110808.pdf">Overview (PDF)</a>
+                  <li><a href="doc/Trema_Basic_Operations_20111005_1.pdf">Basic Operations (PDF)</a>
+	          <li><a href="doc/Trema_Test-first_OpenFlow_programming_with_Trema_20110808.pdf">Test-first OpenFlow programming with Trema (PDF)</a>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="group row">
+              <div class="col-1">
+                <p>Publications</p>
+              </div>
+
+              <div class="col-2">
+                <ul>
+                  <li>HIDEyuki Shimonishi, <a href="doc/Trema_GEC12_20111104_1.pdf">Trema Updates and introduction to GENI researchers</a>, GENI Engineering Conference 12, 2011</li>
+                  <li>HIDEyuki Shimonishi and Yasunobu Chiba and Yasuhito Takamiya and Kazushi Sugyo, <a href="doc/Trema_GEC11_poster.pdf">Trema: An open source OpenFlow controller platform</a>, GENI Engineering Conference 11 poster session, 2011</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
     </div>
 
-    <h1><a href="http://github.com/trema/trema">Trema</a></h1>
+    <a href="http://github.com/trema/trema"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a>
 
-    <div class="description">
-      An Open Source modular framework for developing OpenFlow controllers in Ruby/C
-    </div>
-
-
-    <h2>Download & Install</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/trema/trema/zipball/master">zip</a> or
-      <a href="http://github.com/trema/trema/tarball/master">tar</a> formats.
-    </p>
-
-    <p>
-      You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre><span style="color: #e3d796;">$</span> git clone git://github.com/trema/trema</pre>
-    </p>
-
-    <p>
-      Then checkout the latest release version as follows:
-      <pre><span style="color: #e3d796;">$</span> cd trema<br/><span style="color: #e3d796;">$</span> git checkout master</pre>
-    </p>
-
-    <p>
-      Run build.rb and straight away you have a working Trema
-      installation.
-      <pre><span style="color: #e3d796;">$</span> ./build.rb</pre>
-    </p>
-
-
-    <h2>Get Started</h2>
-
-    To start using Trema, cbench is a good entry point.
-    <a href="http://www.openflow.org/wk/index.php/Oflops">cbench</a>
-    is a program for testing OpenFlow controllers by generating
-    packet-in events for new flows. To estimate the performance of
-    <a href="https://github.com/trema/trema/blob/master/src/examples/cbench_switch/cbench_switch.c">Trema
-    sample controller</a> using cbench, run the following command:
-
-      <pre>
-<span style="color: #e3d796;">$</span> ./build.rb cbench</pre>
-
-    More samples including OpenFlow events dumper, learning switch
-    controller, and etc. are found in
-    <a href="https://github.com/trema/trema/tree/master/src/examples">[trema]/src/examples</a>.
-    Read <a href="https://github.com/trema/trema/wiki/Quick-start">quick-start
-    guide</a> for details.
-
-    <h2>Documents</h2>
-    <ul>
-      <li><a href="https://github.com/trema/trema/blob/master/README.md">README</a>
-      <li><a href="https://raw.github.com/trema/trema/master/INSTALL">How to Install</a>
-      <li><a href="https://github.com/trema/trema/wiki/Quick-start">Quick Start Guide</a>
-      <li>Tutorial Slides
-      <ul>
-        <li><a href="doc/Trema_Overview_20110808.pdf">Overview</a>
-        <li><a href="doc/Trema_Basic_Operations_20111005_1.pdf">Basic Operations</a>
-	<li><a href="doc/Trema_Test-first_OpenFlow_programming_with_Trema_20110808.pdf">Test-first OpenFlow programming with Trema</a>
-      </ul>
-    </ul>
-
-    <h2>Trema Apps</h2>
-
-    Some of OpenFlow controller applications developed on top of Trema can be found on 
-    <a href="https://github.com/trema/apps">Trema Apps</a>.
-    Trema Apps is not main part of Trema framework but you can refer to them as examples or
-    references.
-
-    <h2>Publications</h2>
-    <ul>
-      <li>HIDEyuki Shimonishi, <a href="doc/Trema_GEC12_20111104_1.pdf">Trema Updates and introduction to GENI researchers</a>, GENI Engineering Conference 12, 2011</li>
-      <li>HIDEyuki Shimonishi and Yasunobu Chiba and Yasuhito Takamiya
-        and Kazushi Sugyo, <a href="doc/Trema_GEC11_poster.pdf">Trema: An open source OpenFlow
-        controller platform</a>, GENI Engineering Conference 11 poster session, 2011</li>
-    </ul>
-
-
-    <h2>Contact</h2>
-    <p>
-      <a href="https://groups.google.com/group/trema-dev">trema-dev</a> at Google Groups<br/>
-    </p>
-
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/trema/trema">trema/trema</a>
-    </div>
-
-  </div>
-
-  
-</body>
+  </body>
 </html>
+
+
+
+<!--     <h2>Publications</h2> -->
+<!--     <ul> -->
+<!--       <li>HIDEyuki Shimonishi, <a href="doc/Trema_GEC12_20111104_1.pdf">Trema Updates and introduction to GENI researchers</a>, GENI Engineering Conference 12, 2011</li> -->
+<!--       <li>HIDEyuki Shimonishi and Yasunobu Chiba and Yasuhito Takamiya -->
+<!--         and Kazushi Sugyo, <a href="doc/Trema_GEC11_poster.pdf">Trema: An open source OpenFlow -->
+<!--         controller platform</a>, GENI Engineering Conference 11 poster session, 2011</li> -->
+<!--     </ul> -->
+
+
+<!--     <h2>Contact</h2> -->
+<!--     <p> -->
+<!--       <a href="https://groups.google.com/group/trema-dev">trema-dev</a> at Google Groups<br/> -->
+<!--     </p> -->
+
+
+<!--     <div class="footer"> -->
+<!--       get the source code on GitHub : <a href="http://github.com/trema/trema">trema/trema</a> -->
+<!--     </div> -->
+
+<!--   </div> -->
+
